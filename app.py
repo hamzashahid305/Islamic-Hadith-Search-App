@@ -11,7 +11,7 @@ hadith_number = st.text_input("Hadith Number Likhein (Jaise: 12):")
 if st.button("🔍 Search Hadith"):
     if hadith_number:
         # API Key Securely Access Karo
-        hadith_api_key = st.secrets["$2y$10$hNjBWWuv1uJ78usxn7rtJu1Hv7r7BMRK717pCT9ZCJ5V18FwYuu"]
+        hadith_api_key = st.secrets[""]
         
         # API Request URL
         api_url = f"https://hadithapi.com/api/hadiths?book={book_name}&hadith_number={hadith_number}"
