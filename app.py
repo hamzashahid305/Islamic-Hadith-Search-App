@@ -10,13 +10,14 @@ hadith_number = st.text_input("Hadith Number Likhein (Jaise: 12):")
 
 if st.button("🔍 Search Hadith"):
     if hadith_number:
+        # API Key Securely Access Karo
+        hadith_api_key = st.secrets["$2y$10$hNjBWWuv1uJ78usxn7rtJu1Hv7r7BMRK717pCT9ZCJ5V18FwYuu"]
+        
         # API Request URL
         api_url = f"https://hadithapi.com/api/hadiths?book={book_name}&hadith_number={hadith_number}"
         
-        # API key (Ye tumhe Streamlit secrets me store karni hogi)
-        headers = {"Authorization": f"Bearer {st.secrets['$2y$10$hNjBWWuv1uJ78usxn7rtJu1Hv7r7BMRK717pCT9ZCJ5V18FwYuu']}"}
-        
         # API Request bhejna
+        headers = {"Authorization": f"Bearer {hadith_api_key}"}
         response = requests.get(api_url, headers=headers)
         data = response.json()
 
